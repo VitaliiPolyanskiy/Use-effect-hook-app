@@ -13,5 +13,5 @@ root.render(
   </React.StrictMode>
 );
 
-// экспортируем root, чтобы компонент Clock мог обратиться к нему
+// експортуємо root, щоб компонент Clock міг звернутися до нього
 export { root };

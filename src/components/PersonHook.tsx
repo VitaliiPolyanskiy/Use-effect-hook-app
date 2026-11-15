@@ -7,14 +7,14 @@ export function PersonHook(): JSX.Element {
   const [technology, setTechnology] = useState<string>("React");
   const [date, setDate] = useState<Date>(new Date());
 
-  // Хук useEffect в React нужен для выполнения побочных эффектов (side effects) 
-  // в функциональных компонентах.
-  // Это всё, что не связано напрямую с рендером:
-  // Запросы к серверу
-  // Работа с localStorage
-  // Подписки на события (addEventListener)
-  // Таймеры (setInterval, setTimeout)
-  // Ручное изменение DOM
+  // Хук useEffect у React потрібен для виконання побічних ефектів (side effects) 
+  // у функціональних компонентах.
+  // Це все, що не пов'язано напряму з рендером:
+  // Запити до сервера
+  // Робота з localStorage
+  // Підписки на події (addEventListener)
+  // Таймери (setInterval, setTimeout)
+  // Ручна зміна DOM
   
   useEffect(() => {
     document.title = `${name} ${surname} - автор ${technology}`;
@@ -35,30 +35,30 @@ export function PersonHook(): JSX.Element {
       root.unmount();
       const elemDOM = document.getElementById("root");
       if(elemDOM)
-        elemDOM.innerHTML = "<h2>Компонент удалён</h2>";
+        elemDOM.innerHTML = "<h2>Компонент видалено</h2>";
   };
 
   return (
     <div className="person-card">
-      <p>Текущее время: {date.toLocaleTimeString()}</p>
+      <p>Поточний час: {date.toLocaleTimeString()}</p>
 
-      <h3>Имя: {name}</h3>
-      <h3>Фамилия: {surname}</h3>
-      <h3>Технология: {technology}</h3>
+      <h3>Ім'я: {name}</h3>
+      <h3>Прізвище: {surname}</h3>
+      <h3>Технологія: {technology}</h3>
 
       <div className="form">
         <label>
-          Имя:
+          Ім'я:
           <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
         </label>
 
         <label>
-          Фамилия:
+          Прізвище:
           <input type="text" value={surname} onChange={(e) => setSurname(e.target.value)} />
         </label>
 
         <label>
-          Технология / Язык:
+          Технологія / Мова:
           <input
             type="text"
             value={technology}
@@ -66,7 +66,7 @@ export function PersonHook(): JSX.Element {
           />
         </label>
 
-        <button onClick={unmount}>Освободить ресурсы</button>
+        <button onClick={unmount}>Звільнити ресурси</button>
       </div>
     </div>
   );

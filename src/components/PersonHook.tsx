@@ -17,27 +17,29 @@ export function PersonHook(): JSX.Element {
   // Ручна зміна DOM
   
   useEffect(() => {
+    console.log("Виконується після монтування та після рендерингів, у яких змінилося значення technology");
     document.title = `${name} ${surname} - автор ${technology}`;
   }, [technology]);
 
   // Таймер
   useEffect(() => {
+    console.log("Код, який виконується під час монтування компонента.");
     const idTimer = setInterval(() => {
       setDate(new Date());
     }, 1000);
 
     return () => {
+      console.log("Функція очищення (Cleanup Function), яка виконується під час розмонтування компонента.");
       clearInterval(idTimer);
     };
   }, []);
 
   const unmount = (): void => {
       root.unmount();
-      const elemDOM = document.getElementById("root");
-      if(elemDOM)
-        elemDOM.innerHTML = "<h2>Компонент видалено</h2>";
+      console.log("Компонент видалено");
   };
 
+  console.log("React виконує рендеринг.");
   return (
     <div className="person-card">
       <p>Поточний час: {date.toLocaleTimeString()}</p>
